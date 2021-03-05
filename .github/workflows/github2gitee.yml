@@ -23,14 +23,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: checkout source codes
-        uses: actions/checkout@v2
+#       - name: checkout source codes
+#         uses: actions/checkout@v2
       - name: mirror github's Produce101 to gitee
-        uses: ./.
+        uses: Yikun/hub-mirror-action@python
         with:
           src: github/ShineaSYR
           dst: gitee/shinea
-          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+#           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
           static_list: "Produce101"
 
