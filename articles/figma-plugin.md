@@ -1,16 +1,16 @@
-#如何写figma插件——从零开始
+# 如何写figma插件——从零开始
 近期要开展design to code项目，部门的设计师们大都使用figma，因而了解如何从零开始创建发布figma插件。
 
 Figma插件主要是通过Javascript+HTML+CSS实现，比较适宜前端开发人员上手。
 
-##前期准备
+## 前期准备
 **基础环境**：VsCode、NodeJS、NPM、TypeScript（若未安装，可参考文末的相关链接）。
 
 官方推荐使用TypeScript开发，若无该依赖需要全局安装`npm install -g typescript`。
 **Figma相关**
 下载客户端并登陆（若无账号需注册）。
-##创建插件流程
-###1.新建插件
+## 创建插件流程
+### 1.新建插件
 在Figma客户端里，打开一个已存在文件或者新建文件，依照路径Menu > Plugins > Development > New Plugin...，弹出下方的「创建插件」，可填写插件名称后选择新建插件或者打开已有插件。
 ![创建一个插件](imgs/figma_plugin001.png)
 
@@ -34,7 +34,7 @@ npm install --save-dev @figma/plugin-typings
 【设置TS编译】
 在VsCode中，组合键[⌘⇧B]（Windows组合键为Ctrl+Shift+B），然后选择`tsc: watch - tsconfig.json`，此时会在终端实时编译TS代码。
 
-###2.预览插件
+### 2.预览插件
 直接预览示例插件内容，在Figma客户端中，依照路径Menu > Plugins > Development > “你的插件代码名称”，预览示例插件，点击即可创建5个橙色矩形。
 ![示例插件](imgs/figma_plugin002.png)
 ###3.发布示例插件
@@ -49,22 +49,22 @@ icon：建议128 x 128；
 
 ✅至此一个Figma示例插件创建发布完成。
 
-##其他
-###插件原理
+## 其他
+### 插件原理
 Figma采用将插件代码在sandbox的主线程上运行的执行模式。这个sandbox是最小的JS环境，营造了支持ES6的环境。对于最低版本仍有控制台API。但是无法从sandbox中直接获得XMLHttpRequest 和DOM等浏览器原生API。
 
 可以通过创建一个`<iframe>`的方式使用浏览器API（如显示UI或访问网络等），里面包含`<script>`标签。
 ![图片](https://static.figma.com/uploads/04c4c6293fce2a7fe67bccd385ee5ab998705780)
 
 
-###调试
+### 调试
 在Figma客户端中，通过「Plugins > Development > Open Console.」或者组合快捷键「⌥⌘I」打开Console面板，此时在控制台中输入`figma.currentPage`可以看到返回的内容，当在代码中打印相应参数，也可以在Console面板中看到。
 更多关于插件调试，[可点击此处查看](!https://www.figma.com/plugin-docs/debugging/)
 
 更多Figma官方API，[可点击此处查询](!https://www.figma.com/plugin-docs/api/api-overview/)
 
 
-##参考文档
+## 参考文档
 - [figma plugin-docs](!https://www.figma.com/plugin-docs/intro/)
 - [如何写一个figma插件](!https://juejin.cn/post/6844904003550052366)
 - [Publish plugins to the Figma Community](!https://help.figma.com/hc/en-us/articles/360042293394-Publish-a-plugin-to-the-Community#h_49f97b73-4559-4a74-a2fc-2f44798186df)
