@@ -69,3 +69,4 @@ Figma采用将插件代码在sandbox的主线程上运行的执行模式。这�
 - [如何写一个figma插件](https://juejin.cn/post/6844904003550052366)
 - [Publish plugins to the Figma Community](https://help.figma.com/hc/en-us/articles/360042293394-Publish-a-plugin-to-the-Community#h_49f97b73-4559-4a74-a2fc-2f44798186df)
 - [下载VsCode](https://code.visualstudio.com/)、[点击安装NodeJS & NPM](https://nodejs.org/en/download/)
+93f7411b457da2896f380c9f3ebc40b189d673be
