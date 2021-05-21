@@ -23,7 +23,7 @@ ECharts可以自行配置js包的内容，访问[链接](https://echarts.apache.
 （若为ECharts熟练工，可跳到下一趴）
 官方快速上手[文档](https://echarts.apache.org/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts)，下面贴一下视觉还原的页面（PS：IE8兼容性，建议本地拷贝后打开测试）。
 
-界面链接 👉 [codePen](https://codepen.io/shineasyr/full/xxqgeZx) 、<a href="../echart-fe.html" target="_blank">Github Page</a>
+界面链接 👉 [codePen](https://codepen.io/shineasyr/full/xxqgeZx) 、<a href="https://shineasyr.github.io/Produce101/echart-fe.html" target="_blank">Github Page</a>
 ```html
 <div class="shinea-chart" id="shineaChart" ></div>
 .shinea-chart {min-height: 400px;}
