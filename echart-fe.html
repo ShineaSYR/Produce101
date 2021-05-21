@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EChart Demo</title>
+  <style>
+     .shinea-chart {min-height: 400px; outline: 1px red dotted;} 
+  </style>
+</head>
+<body>
+    <button onclick="changeData()">点击切换数据</button>
+    <button onclick="changeZero()">点击切换数据0</button>
+    <div class="shinea-chart" id="shineaChart" ></div>
+
+  <script src="https://shineasyr.github.io/FESource/echarts3_8_0.mini.js"></script>
+  <script>
+    var shineaChart = echarts.init(document.getElementById('shineaChart'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            show: false,
+            text: '双折线面积渐变色'
+        },
+        color: ['#0067E6', '#F78482'],
+        tooltip: {
+            // formatter: '{b0}<br />{a0}:{c0}<br />{a1}:{c1}',
+            trigger: 'axis',
+            axisPointer: {      // hover有后阴影
+                type: 'shadow'
+            }
+        },
+        legend: {
+            // selectedMode: false,     // 图例选择的模式
+            y: 'bottom',        // 位置
+            data:['推荐票次数', '推荐票人数']
+        },
+        grid: {      // 整个图表的在容齐的分布设置
+            top: '3%',
+            left: '2%',
+            right: '3%',
+            bottom: '12%',
+            containLabel: true
+        },
+        xAxis: {
+            axisTick: {show: false},
+            axisLabel: {
+                textStyle: {
+                    color: '#525252',
+                    fontSize : 12
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: "rgba(21, 26, 48, 0.12)",
+                    type: "dashed"
+                },
+            },
+            data: ["5-11","5-12","5-13","5-13","5-14","5-15"]
+        },
+        yAxis: {
+            minInterval: 1,     // 最小刻度 主要用于对数据较小处理
+            axisLabel: {        // 刻度标签
+                // padding: [5, 0, 0, 0],      // 标签间距
+                textStyle: {
+                    color: '#525252',
+                    fontSize : 12
+                }
+            },
+            splitLine: {        // 分割线
+                lineStyle: {
+                    color: "rgba(21, 26, 48, 0.12)",
+                    type: "dashed"
+                }
+            },
+            axisLine: {show: false},    // 坐标轴轴线
+            axisTick: {show: false},    // 坐标轴刻度短线
+        },
+        series: [{
+            name: '推荐票次数',
+            type: 'line',
+            smooth: true,   // 曲线光滑
+            areaStyle: {
+                normal: {
+                    color: {
+                    type: 'linear',
+                    x0: 0,
+                    y0: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0,
+                        color: 'rgba(0, 103, 229, 0.2)',
+                    }, {
+                        offset: 0.5,
+                        color: 'rgba(0, 103, 229, 0.08)',
+                    }, {
+                        offset: 1,
+                        color: 'rgba(0, 103, 229, 0)',
+                    }],
+                    globalCoord: false
+                    }
+                }
+            },
+            data: [45, 20, 31, 10, 10, 20]
+        }, {
+            name: '推荐票人数',
+            type: 'line',
+            data: [15, 30, 36, 20, 30, 34]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    shineaChart.setOption(option);
+    
+    function changeData() {
+        // random data
+        var pvArr = [12, 56, 32, 10, 20, 24];
+        var uvArr = [9, 34, 6, 26, 45, 34];
+
+        shineaChart.setOption({
+            series: [{
+                data: pvArr
+            }, {
+                data: uvArr
+            }]
+        })
+    }
+
+    function changeZero() {
+        var pvArr = [0, 0, 0, 0, 0, 0];
+        var uvArr = [0, 0, 0, 0, 0, 0];
+
+        shineaChart.setOption({
+            series: [{
+                data: pvArr
+            }, {
+                data: uvArr
+            }]
+        })
+    }
+  </script>
+</body>
+</html>
