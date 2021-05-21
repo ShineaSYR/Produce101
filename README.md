@@ -5,3 +5,4 @@ Practice makes perfect. To be the center！！！
 - [补全字符左侧/右侧空缺](articles/padStart-padEnd.md)
 - [VuePress搭建项目文档](https://vuepress.vuejs.org/zh/guide/getting-started.html)
 - [智能打点](articles/smart-ellipsis.md)
+- [那些年，为echarts留下的眼泪](articles/echart.md)
